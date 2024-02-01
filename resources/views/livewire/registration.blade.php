@@ -1110,7 +1110,7 @@
                         </colgroup>
                         <tbody>
                             <tr height="16">
-                                <td class="transparent-border"><input wire:model="terms_and_condition_flag" type="checkbox"></td>
+                                <td class="transparent-border"><input id="terms_and_condition_flag" wire:model="terms_and_condition_flag" type="checkbox" onchange="disableAndEnableButton()"></td>
                                 <td class="transparent-border">
                                     <p><a href="" style="color: #ff3333;">*</a>  I agree to be bound by <a href="https://github.com/Magioti/Circleone_Online_Registration" style="color: #0099ff;">the Circleone terms of use and privacy policy</a>.</p>
                                     @error('terms_and_condition_flag')
@@ -1120,25 +1120,54 @@
                              </tr>
                         </tbody>
                 </table>
-                
-                <button class="block rounded px-3 py-1 mt-2 bg-blue-400 text-white">Create</button>
+                <button id="submit_button" class="block rounded px-3 py-1 mt-2 bg-blue-400 text-white disabled" disabled>Submit</button>
     </form>
 
+    <!-- Style -->
+
+    <style>
+        .enabled {
+            background-color: #4CAF50; 
+            color: white;
+        }
+        .disabled {
+            background-color: #ccc;
+            color: #555;
+        }
+    </style>
+
     <!-- JavaScript -->
+
     <script>
         function checkInputVisibility() {
-            // Mengambil nilai dari onbehalf_reg
-            var valueOnbehalfReg = document.querySelector('input[name="onbehalf_reg"]:checked').value;
+                // Mengambil nilai dari onbehalf_reg
+                var valueOnbehalfReg = document.querySelector('input[name="onbehalf_reg"]:checked').value;
 
-            // Menentukan elemen yang ingin diatur visibilitasnya
-            var elementsToHide = document.querySelectorAll('.custom-label, .custom-input');
+                // Menentukan elemen yang ingin diatur visibilitasnya
+                var elementsToHide = document.querySelectorAll('.custom-label, .custom-input');
 
-            // Mengatur visibilitas elemen berdasarkan kondisi nilai onbehalf_reg
-            elementsToHide.forEach(function (element) {
+                // Mengatur visibilitas elemen berdasarkan kondisi nilai onbehalf_reg
+                elementsToHide.forEach(function (element) {
                 // Menampilkan atau menyembunyikan elemen berdasarkan kondisi nilai onbehalf_reg
                 element.style.display = (valueOnbehalfReg === 'pribadi' ? 'none' : 'block');
             });
         }
+
+        function disableAndEnableButton() {
+            var valueTermsAndConditionFlag = document.getElementById('terms_and_condition_flag');
+
+            // #if enabled
+            if (valueTermsAndConditionFlag.checked) {
+                document.getElementById('submit_button').disabled = false;
+                document.getElementById('submit_button').classList.remove('disabled');
+            } 
+            
+            // #if disabled
+            else {
+                document.getElementById('submit_button').disabled = true;
+                document.getElementById('submit_button').classList.add('disabled');
+            }
+        }
+
     </script>
-    
 </div>

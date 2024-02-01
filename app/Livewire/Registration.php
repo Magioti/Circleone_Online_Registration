@@ -32,6 +32,7 @@ class Registration extends Component
     public $partner_id = '';
     public $partner_gender = '';
     public $partner_identity = '';
+    // public $partner_identity_nmbr = '';
     public $partner_bdate = '';
     public $partner_npwp = '';
     public $business_type = '';
@@ -100,15 +101,12 @@ class Registration extends Component
     #[Validate('max:102400')]
     public $other_doc_file;
 
-    // public $show = false;
-
     public $textInput1;
     public $textInput2;
-    // public $hiddenFieldVisible;
 
     public function createNewCustomer()
     {
-        // validate jika nilai onbehalf_reg tidak sama dengan 'pribadi'
+        // #if value onbehalf_reg != 'pribadi'
         $rules_2 = [
             'onbehalf_name' => 'required',
             'onbehalf_gender' => 'required',
@@ -122,9 +120,7 @@ class Registration extends Component
             'partner_id' => 'required',
             'partner_gender' => 'required',
             'partner_identity' => 'required',
-
             // 'partner_identity_nmbr' => 'required',
-
             'partner_bdate' => 'required',
             'business_type' => 'required',
             'partner_shipping_id' => 'required',
@@ -146,7 +142,7 @@ class Registration extends Component
         ];
 
 
-        // validate jika nilai onbehalf_reg sama dengan 'pribadi'
+        // #if value onbehalf_reg = 'pribadi'
         $rules = [
             'onbehalf_name' => 'required',
             'onbehalf_gender' => 'required',
@@ -157,19 +153,8 @@ class Registration extends Component
             'nik_address_compelete' => 'required',
             'nik_zip' => 'required',
             'onbehalf_reg' => 'required',
-            // 'partner_id' => 'required',
-            // 'partner_gender' => 'required',
-            // 'partner_identity' => 'required',
-
-            // 'partner_identity_nmbr' => 'required',
-
-            // 'partner_bdate' => 'required',
-            // 'business_type' => 'required',
             'partner_shipping_id' => 'required',
-            // 'mobile' => 'required',
             'site_status' => 'required',
-            // 'email' => 'required|email',
-            // 'email2' => 'email',
             'correspondent' => 'required',
             'group_order' => 'required',
             'bandwidth_type' => 'required',
@@ -199,8 +184,6 @@ class Registration extends Component
         $bak_file = null;
         $other_doc_file = null;
         $date_order = null;
-
-        // dd($date_order);
 
         // #if file exits upload it and get the name
         if ($this->surat_kuasa_file) {
@@ -244,7 +227,7 @@ class Registration extends Component
             $other_doc_file = basename($other_doc_file);
         }
 
-        // 
+        // additional condition for date_order created
         if ($this->date_order != null) {
             $date_order = $this->date_order;
         } else {
@@ -383,12 +366,9 @@ class Registration extends Component
 
     public function render()
     {
-        // $title = "Test";
-
         $customers = Customer::all();
 
         return view('livewire.registration', [
-            // 'title' => $title,
             'customers' => $customers
         ]);
     }

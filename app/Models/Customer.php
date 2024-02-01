@@ -70,6 +70,7 @@ class Customer extends Model
         'akta_file',
         'bak_file',
         'other_doc_file',
+        'terms_and_condition_flag',
     ];
 
 

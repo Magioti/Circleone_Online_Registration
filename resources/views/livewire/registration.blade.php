@@ -1366,72 +1366,30 @@
                                     </tbody>
                                 </table>
                         </group>
+                    </sheet>        
 
-<!-- =============================================================================================================== -->
-                        <notebook>
-                            <page string="Internal Notes">
-                                <field name="internal_note"/>
-                            </page>
-                            <page string="Other Info">
-                                <group name="sale_header">
-                                    <group>
-                                        <field name="type_of_order"/>
-                                        <field name="subscription_plan_id"/>
-                                        <field name="company_id"/>
-                                        <field name="ead" readonly="0"/>
-                                        <field name="user_id"/>
-                                    </group>
-                                    <group name="order_details">
-                                        <field name="source_order"/>
-                                        <field name="group_order"/>
-                                        <field name="validity_date" attrs="{'invisible': [('state', 'in', ['sale', 'done'])]}"/>
+                <table width="100%" class="transparent-border mt-5 mb-5">
+                            <colgroup>
+                                <col width="2%"/>
+                                <col width="98%"/>
+                            </colgroup>
+                            <tbody>
+                                <tr height="16">
+                                    <td class="transparent-border"><input wire:model="terms_and_condition_flag" type="checkbox"></td>
+                                    <td class="transparent-border">
+                                        <p>I agree to be bound by <a href="https://github.com/Magioti/Circleone_Online_Registration" style="color: #0099ff;">the Circleone terms of use and privacy policy</a>.</p>
 
-<!--                                        <div class="o_td_label" groups="base.group_no_one" attrs="{'invisible': [('state', 'in', ['sale', 'done', 'cancel'])]}">-->
-<!--                                            <label for="date_order" string="Quotation Date"/>-->
-<!--                                        </div>-->
+                                        @error('terms_and_condition_flag') <!-- Jika error akan menampilkan tampilan seperti ini  -->
+                                            <span class="text-red-500 text-xs">{{ $message }}</span>
+                                        @enderror
 
-<!--                                        <field name="date_order" nolabel="1" groups="base.group_no_one" attrs="{'invisible': [('state', 'in', ['sale', 'done', 'cancel'])]}"/>-->
-<!--                                        <div class="o_td_label" attrs="{'invisible': [('state', 'in', ['draft', 'sent'])]}">-->
-<!--                                            <label for="date_order" string="Order Date"/>-->
-<!--                                        </div>-->
-<!--                                        <field name="date_order" attrs="{'required': [('state', 'in', ['sale', 'done'])], 'invisible': [('state', 'in', ['draft', 'sent'])]}" nolabel="1"/>-->
+                                    </td>
+                                </tr>
+                            </tbody>
+                </table>
 
-                                        <field name="show_update_pricelist" invisible="1"/>
-                                        <label for="pricelist_id" groups="product.group_product_pricelist"/>
-                                        <div groups="product.group_product_pricelist" class="o_row">
-                                            <field name="pricelist_id" options="{'no_open':True,'no_create': True}"/>
-                                            <button name="update_prices" type="object" string=" Update Prices" help="Recompute all prices based on this pricelist" class="btn-link mb-1 px-0" icon="fa-refresh" confirm="This will update all unit prices based on the currently set pricelist." attrs="{'invisible': ['|', ('show_update_pricelist', '=', False), ('state', 'in', ['sale', 'done','cancel'])]}"/>
-                                        </div>
-                                        <field name="currency_id" invisible="1"/>
-                                        <field name="tax_country_id" invisible="1"/>
-                                        <field name="payment_term_id" options="{'no_open':True,'no_create': True}"/>
-                                    </group>
-                                </group>
-                            </page>
-                        </notebook>
-                    </sheet>
-                <div class="oe_chatter">
-                    <!-- <field name="message_follower_ids"/> -->
-                    <!-- <field name="activity_ids"/> -->
-                    <!-- <field name="message_ids"/> -->
-                </div>
-                <button class="block rounded px-3 py-1 bg-blue-400 text-white" >Create</button>
+                <button class="block rounded px-3 py-1 mt-2 bg-blue-400 text-white">Create</button>
     </form>
-
-    <hr>
-
-    <!-- Cara agar Field Hidden ketika field onbehalf_reg di isi dengan value 'perusahaan' -->
-    <!-- <label for="textInput1" class="custom-label">Input Text 1:</label>
-    <input type="text" class="custom-input" id="textInput1" name="textInput1" oninput="checkInputVisibility()">
-
-    <label for="textInput2" class="custom-label">Input Text 2:</label>
-    <input type="radio" class="custom-input" id="textInput2" name="textInput2" value="option1" oninput="checkInputVisibility()">
-
-    <label for="textInput3" class="custom-label">Input Text 3:</label>
-    <input type="radio" class="custom-input" id="textInput3" name="textInput3" value="option2" oninput="checkInputVisibility()">
-
-    <label for="textInput4" class="custom-label">Input Text 4:</label>
-    <input type="radio" class="custom-input" id="textInput4" name="textInput4" value="option3" oninput="checkInputVisibility()"> -->
 
     <!-- JavaScript -->
     <script>

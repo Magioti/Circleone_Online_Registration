@@ -132,6 +132,7 @@ class CustomerResource extends Resource
                         FileUpload::make('akta_file')->label('FC Akta Perusahaan')->disabledOn('edit'),
                         FileUpload::make('bak_file')->label('Berita Acara Kerjasama')->disabledOn('edit'),
                         FileUpload::make('other_doc_file')->label('Lainnya')->disabledOn('edit'),
+                        Checkbox::make('terms_and_condition_flag')->label('Terms & Condition')->required()->disabledOn('edit'),
                     ])
                     ->columns(2),
             ]);
@@ -204,6 +205,9 @@ class CustomerResource extends Resource
                 // TextColumn::make('akta_file')->sortable()->searchable()->label('FC Akta Perusahaan'),
                 // TextColumn::make('bak_file')->sortable()->searchable()->label('Berita Acara Kerjasama'),
                 // TextColumn::make('other_doc_file')->sortable()->searchable()->label('Lainnya'),
+
+                // Terms & Condition
+                TextColumn::make('terms_and_condition_flag')->sortable()->searchable()->label('Terms & Condition'),
             ])
             ->filters([
                 //

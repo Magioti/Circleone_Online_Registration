@@ -77,6 +77,7 @@ class Registration extends Component
     // public $akta_file ='';
     // public $bak_file ='';
     // public $other_doc_file ='';
+    public $terms_and_condition_flag = '';
 
     #[Validate('max:102400')]
     public $surat_kuasa_file;
@@ -141,6 +142,7 @@ class Registration extends Component
             'pic_invoice_email' => 'required|email',
             'identity_flag' => 'required',
             'identity_file' => 'required',
+            'terms_and_condition_flag' => 'required',
         ];
 
 
@@ -178,6 +180,7 @@ class Registration extends Component
             'pic_invoice_email' => 'required|email',
             'identity_flag' => 'required',
             'identity_file' => 'required',
+            'terms_and_condition_flag' => 'required',
         ];
     
         // Additional condition for extra validation
@@ -308,6 +311,7 @@ class Registration extends Component
             'akta_file' => $akta_file,
             'bak_file' => $bak_file,
             'other_doc_file' => $other_doc_file,
+            'terms_and_condition_flag' => $this->terms_and_condition_flag,
         ]);
 
 
@@ -371,6 +375,7 @@ class Registration extends Component
             'akta_file',
             'bak_file',
             'other_doc_file',
+            'terms_and_condition_flag',
         ]);
 
         request()->session()->flash('success', 'User Create Successfully!');

@@ -73,6 +73,7 @@ return new class extends Migration
             $table->string('akta_file')->nullable();
             $table->string('bak_file')->nullable();
             $table->string('other_doc_file')->nullable();
+            $table->string('terms_and_condition_flag')->nullable();
         });
     }
 

@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('partner_id')->nullable();
             $table->string('partner_gender')->nullable();
             $table->string('partner_identity')->nullable();
+            $table->string('partner_identity_nmbr')->nullable();
             $table->string('partner_bdate')->nullable();
             $table->string('partner_npwp')->nullable();
             $table->string('business_type')->nullable();

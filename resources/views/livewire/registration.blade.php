@@ -275,7 +275,7 @@
                             </colgroup>
                             <tbody>
                                 <tr height="16">
-                                    <td class="transparent-border" style="vertical-align: middle;"><span class="custom-input" style="display: none" wire:ignore>Nama Pelanggan <a href="" style="color: #ff3333;">*</a><a href="" style="color: #ff3333;">*</a></span></td>
+                                    <td class="transparent-border" style="vertical-align: middle;"><span class="custom-input" style="display: none" wire:ignore>Nama Pelanggan <a href="" style="color: #ff3333;">*</a></span></td>
                                     <td class="transparent-border" style="vertical-align: middle;"><span class="custom-input" style="display: none" wire:ignore>:</span></td>
                                     <td class="transparent-border bottom-border-dotted">
                                         <input class="block rounded border border-gray-100 px-3 py-1 mt-2 custom-input" wire:model="partner_id" type="partner_id" placeholder="Nama Pelanggan" style="width:100%; display: none" wire:ignore>
@@ -321,7 +321,7 @@
                             </colgroup>
                             <tbody>
                                 <tr height="16">
-                                    <td class="transparent-border"><span class="custom-input" style="display: none" wire:ignore>No. NIK/SIM/NIB <a href="" style="color: #ff3333;">*</a></span></td>
+                                    <td class="transparent-border"><span class="custom-input" style="display: none" wire:ignore>No. NIK/SIM/NIB <a href="" style="color: #ff3333;">**</a></span></td>
                                     <td class="transparent-border"><span class="custom-input" style="display: none" wire:ignore>:</span></td>
                                     <td class="transparent-border">
                                     <table width="100%" class="transparent-border">
@@ -353,7 +353,10 @@
                                         @enderror
                                     </td>
                                     <td class="transparent-border">
-                                        <field name="partner_identity_nmbr" style="width:96%" attrs="{'required':[('partner_identity','=',True)]}"/>
+                                        <input class="block rounded border border-gray-100 px-3 py-1 mt-2 custom-input" wire:model="partner_identity_nmbr" type="partner_identity_nmbr" placeholder="No. NIK/SIM/NIB" style="width:80%; display: none" wire:ignore>
+                                        @error('partner_identity_nmbr')
+                                            <span class="text-red-500 text-xs custom-input">{{ $message }}</span>
+                                        @enderror
                                     </td>
                                     <td class="transparent-border"><span class="custom-input" style="display: none" wire:ignore>Tanggal Lahir <a href="" style="color: #ff3333;">*</a></span></td>
                                     <td class="transparent-border"><span class="custom-input" style="display: none" wire:ignore>:</span></td>
@@ -1120,7 +1123,7 @@
                              </tr>
                         </tbody>
                 </table>
-                <button id="submit_button" class="block rounded px-3 py-1 mt-2 bg-blue-400 text-white disabled" disabled>Submit</button>
+                <button id="submit_button" class="block rounded px-3 py-1 mt-2 bg-blue-400 text-white disabled" disabled wire:ignore>Submit</button>
     </form>
 
     <!-- Style -->

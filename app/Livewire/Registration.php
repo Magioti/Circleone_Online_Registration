@@ -32,7 +32,7 @@ class Registration extends Component
     public $partner_id = '';
     public $partner_gender = '';
     public $partner_identity = '';
-    // public $partner_identity_nmbr = '';
+    public $partner_identity_nmbr = '';
     public $partner_bdate = '';
     public $partner_npwp = '';
     public $business_type = '';
@@ -120,7 +120,7 @@ class Registration extends Component
             'partner_id' => 'required',
             'partner_gender' => 'required',
             'partner_identity' => 'required',
-            // 'partner_identity_nmbr' => 'required',
+            'partner_identity_nmbr' => 'required',
             'partner_bdate' => 'required',
             'business_type' => 'required',
             'partner_shipping_id' => 'required',
@@ -249,6 +249,7 @@ class Registration extends Component
             'partner_id' => $this->partner_id,
             'partner_gender' => $this->partner_gender,
             'partner_identity' => $this->partner_identity,
+            'partner_identity_nmbr' => $this->partner_identity_nmbr,
             'partner_bdate' => $this->partner_bdate,
             'partner_npwp' => $this->partner_npwp,
             'business_type' => $this->business_type,
@@ -313,6 +314,7 @@ class Registration extends Component
             'partner_id',
             'partner_gender',
             'partner_identity',
+            'partner_identity_nmbr',
             'partner_bdate',
             'partner_npwp',
             'business_type',

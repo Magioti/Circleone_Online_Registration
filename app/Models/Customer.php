@@ -25,6 +25,7 @@ class Customer extends Model
         'partner_id',
         'partner_gender',
         'partner_identity',
+        'partner_identity_nmbr',
         'partner_bdate',
         'partner_npwp',
         'business_type',

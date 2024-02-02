@@ -45,7 +45,7 @@
                                 <tr height="10"/>
                                 <tr height="30">
                                     <td class="transparent-border bold bg-black text-center text-white" style="font-size: 14px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
-                                        <b>DATA CALON PELANGGAN<field name="group_order" readonly="1" force_save="1"/></b>
+                                        <b>DATA CALON PELANGGAN</b>
                                     </td>
                                 </tr>
                                 <tr height="3"/>

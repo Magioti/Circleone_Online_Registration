@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Livewire\Attributes\Rule;
 use App\Mail\mailnotification;
+use App\Mail\mailnotificationinternal;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -306,6 +307,7 @@ class Registration extends Component
         ];
         
         Mail::to($this->onbehalf_email)->send(new mailnotification($data));
+        Mail::to('customer.relation@circleone.net.id')->send(new mailnotificationinternal($data));
 
         $this->reset([
             'date_order',

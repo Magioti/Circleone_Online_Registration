@@ -13,12 +13,16 @@ class mailnotification extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $data;
+
     /**
      * Create a new message instance.
+     *
+     * @param array $emailData
      */
-    public function __construct()
+    public function __construct($data)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -27,19 +31,19 @@ class mailnotification extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Mailnotification',
+            subject: '[NOREPLY] Notifikasi Pendafataran CIRCLEONE',
         );
     }
 
     /**
      * Get the message content definition.
      */
-    public function content(): Content
-    {
-        return new Content(
-            view: 'view.name',
-        );
-    }
+    // public function content(): Content
+    // {
+    //     return new Content(
+    //         view: 'view.name',
+    //     );
+    // }
 
     /**
      * Get the attachments for the message.
@@ -49,5 +53,15 @@ class mailnotification extends Mailable
     public function attachments(): array
     {
         return [];
+    }
+
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->view('emails.emailnotification')->with('data', $this->data);
     }
 }

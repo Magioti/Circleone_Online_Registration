@@ -2,16 +2,18 @@
 
 namespace App\Livewire;
 
-use Illuminate\Support\Str;
+use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Customer;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use Livewire\Attributes\Rule;
+use App\Mail\mailnotification;
 use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads as LivewireWithFileUploads;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class Registration extends Component
 {
@@ -169,11 +171,11 @@ class Registration extends Component
         ];
     
         // Additional condition for extra validation
-        if ($this->onbehalf_reg == 'pribadi') {
-            $this->validate($rules);
-        } else {
-            $this->validate($rules_2);
-        }
+        // if ($this->onbehalf_reg == 'pribadi') {
+        //     $this->validate($rules);
+        // } else {
+        //     $this->validate($rules_2);
+        // }
 
         # file names
         $surat_kuasa = null;
@@ -298,6 +300,12 @@ class Registration extends Component
             'terms_and_condition_flag' => $this->terms_and_condition_flag,
         ]);
 
+        $data = [
+            'onbehalf_name' => $this->onbehalf_name,
+            'onbehalf_email' => $this->onbehalf_email,
+        ];
+        
+        Mail::to($this->onbehalf_email)->send(new mailnotification($data));
 
         $this->reset([
             'date_order',

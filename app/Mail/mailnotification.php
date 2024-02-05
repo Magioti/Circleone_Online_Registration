@@ -62,6 +62,6 @@ class mailnotification extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.emailnotification')->with('data', $this->data);
+        return $this->view('emails.mailnotification')->with('data', $this->data);
     }
 }

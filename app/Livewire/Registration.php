@@ -171,11 +171,11 @@ class Registration extends Component
         ];
     
         // Additional condition for extra validation
-        // if ($this->onbehalf_reg == 'pribadi') {
-        //     $this->validate($rules);
-        // } else {
-        //     $this->validate($rules_2);
-        // }
+        if ($this->onbehalf_reg == 'pribadi') {
+            $this->validate($rules);
+        } else {
+            $this->validate($rules_2);
+        }
 
         # file names
         $surat_kuasa = null;

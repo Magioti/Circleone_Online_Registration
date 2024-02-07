@@ -17,7 +17,7 @@
                                 <tr height="10"/>
                                 <tr height="20">
                                     <td class="transparent-border bold text-center" style="color:black; font-size: 18px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ">
-                                        FORMULIR APLIKASI KONTRAK BERLANGGANAN (FAB)
+                                        <p><b>FORMULIR APLIKASI BERLANGGANAN</b></p>
                                     </td>
                                     <td style="color:black;  font-size: 14px;">Tanggal</td>
                                     <td style="font-size: 14px;">:</td>
@@ -27,7 +27,7 @@
                                 </tr>
                                 <tr height="20">
                                     <td class="transparent-border bold text-center" style="color:black;  font-size: 18px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
-                                        LAYANAN TELEKOMUNIKASI CIRCLEONE
+                                        <p><b>LAYANAN <a href="http://www.circleone.net.id/">CIRCLEONE</a></b></p>
                                     </td>
                                     <td style="color:black; font-size: 14px;">No. FAB</td>
                                     <td style="color:black; font-size: 14px;">:</td>
